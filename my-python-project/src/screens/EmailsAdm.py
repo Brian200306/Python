@@ -209,6 +209,14 @@ class EmailsAdm:
         style.layout("Toggle.TButton", base_layout)
         style.layout("Toggle.TButton.Active", base_layout)
         
+        # Definindo layout para os Action.TButton
+        style.layout("Action.TButton.Add", base_layout)
+        style.layout("Action.TButton.Edit", base_layout)
+        style.layout("Action.TButton.Delete", base_layout)
+        style.layout("Action.TButton.Cancel", base_layout)
+        style.layout("Action.TButton.Save", base_layout)
+        style.layout("Action.TButton.Search", base_layout)
+        
         # Estilos base
         style.configure("Main.TFrame", background=self.branco)
         style.configure("Content.TFrame", background=self.verde_agua)
@@ -245,88 +253,45 @@ class EmailsAdm:
         style.configure("Toggle.TButton.Active", background=self.verde_escuro, foreground=self.branco, 
                         relief="flat", padding=8, font=("Segoe UI", 9, "bold"))
         style.map("Toggle.TButton", 
-                background=[("active", self.cinza_medio)],
-                foreground=[("active", self.preto)])
+                  background=[("active", self.cinza_medio)],
+                  foreground=[("active", self.preto)])
         style.map("Toggle.TButton.Active", 
-                background=[("active", self.verde_claro)],
-                foreground=[("active", self.branco)])
-        
-        # Estilos base
-        style.configure("Main.TFrame", background=self.branco)
-        style.configure("Content.TFrame", background=self.verde_agua)
-        style.configure("Filter.TFrame", background=self.verde_agua, relief="groove", borderwidth=1, padding=10)
-        style.configure("Header.TFrame", background=self.verde_escuro)
-        style.configure("Footer.TFrame", background=self.verde_escuro)
-        
-        # Rótulos
-        style.configure("TLabel", background=self.verde_agua, foreground=self.preto)
-        style.configure("Bold.TLabel", background=self.verde_agua, foreground=self.preto, font=("Segoe UI", 9, "bold"))
-        style.configure("Header.TLabel", background=self.verde_escuro, foreground=self.branco, font=("Segoe UI", 16, "bold"))
-        style.configure("Footer.TLabel", background=self.verde_escuro, foreground=self.branco, font=("Segoe UI", 9))
-        style.configure("Icon.TLabel", background=self.verde_agua, font=("Segoe UI", 12))
-        
-        # Entradas e campos
-        style.configure("TEntry", fieldbackground=self.branco, foreground=self.preto, borderwidth=1)
-        style.configure("Modern.TEntry", fieldbackground=self.branco, foreground=self.preto, 
-                      borderwidth=1, relief="flat", padding=5)
-        
-        # Combobox moderno
-        style.configure("TCombobox", fieldbackground=self.branco, foreground=self.preto, 
-                      borderwidth=1, relief="flat", arrowsize=12)
-        style.configure("Modern.TCombobox", padding=5, relief="flat", borderwidth=0)
-        style.map("Modern.TCombobox", fieldbackground=[("readonly", self.branco)])
-        style.map("Modern.TCombobox", selectbackground=[("readonly", self.verde_claro)])
-        style.map("Modern.TCombobox", selectforeground=[("readonly", self.preto)])
-        
-        # Área de texto
-        style.configure("TText", background=self.branco, foreground=self.preto, borderwidth=1, relief="flat")
-        
-        # Botões toggle para seleção de tipo
-        style.configure("Toggle.TFrame", background=self.verde_agua)
-        style.configure("Toggle.TButton", background=self.branco, foreground=self.preto, 
-                      relief="flat", padding=8, font=("Segoe UI", 9))
-        style.configure("Toggle.TButton.Active", background=self.verde_escuro, foreground=self.branco, 
-                      relief="flat", padding=8, font=("Segoe UI", 9, "bold"))
-        style.map("Toggle.TButton", 
-                background=[("active", self.cinza_medio)],
-                foreground=[("active", self.preto)])
-        style.map("Toggle.TButton.Active", 
-                background=[("active", self.verde_claro)],
-                foreground=[("active", self.branco)])
+                  background=[("active", self.verde_claro)],
+                  foreground=[("active", self.branco)])
         
         # Botões de ação coloridos
         style.configure("Action.TButton.Add", background=self.verde_claro, foreground=self.branco, 
-                      relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
+                        relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
         style.configure("Action.TButton.Edit", background=self.azul, foreground=self.branco, 
-                      relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
+                        relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
         style.configure("Action.TButton.Delete", background=self.vermelho, foreground=self.branco, 
-                      relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
+                        relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
         style.configure("Action.TButton.Cancel", background=self.cinza_medio, foreground=self.preto, 
-                      relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
+                        relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
         style.configure("Action.TButton.Save", background=self.verde_escuro, foreground=self.branco, 
-                      relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9, "bold"))
+                        relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9, "bold"))
         style.configure("Action.TButton.Search", background=self.amarelo, foreground=self.preto, 
-                      relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
+                        relief="flat", padding=8, borderwidth=0, font=("Segoe UI", 9))
         
         # Mapeamentos de hover para botões de ação
         style.map("Action.TButton.Add", 
-                background=[("active", "#5DA980")],
-                foreground=[("active", self.branco)])
+                  background=[("active", "#5DA980")],
+                  foreground=[("active", self.branco)])
         style.map("Action.TButton.Edit", 
-                background=[("active", "#1976D2")],
-                foreground=[("active", self.branco)])
+                  background=[("active", "#1976D2")],
+                  foreground=[("active", self.branco)])
         style.map("Action.TButton.Delete", 
-                background=[("active", "#D32F2F")],
-                foreground=[("active", self.branco)])
+                  background=[("active", "#D32F2F")],
+                  foreground=[("active", self.branco)])
         style.map("Action.TButton.Cancel", 
-                background=[("active", "#BDBDBD")],
-                foreground=[("active", self.preto)])
+                  background=[("active", "#BDBDBD")],
+                  foreground=[("active", self.preto)])
         style.map("Action.TButton.Save", 
-                background=[("active", "#095E42")],
-                foreground=[("active", self.branco)])
+                  background=[("active", "#095E42")],
+                  foreground=[("active", self.branco)])
         style.map("Action.TButton.Search", 
-                background=[("active", "#FFA000")],
-                foreground=[("active", self.preto)])
+                  background=[("active", "#FFA000")],
+                  foreground=[("active", self.preto)])
         
         # Treeview (tabela de registros)
         style.configure("Treeview", 
